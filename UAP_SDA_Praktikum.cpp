@@ -1,3 +1,6 @@
+// UAP Struktur Data dan Algoritma
+// Judul : Program Kasir Rumah Makan Kita
+
 #include <iostream>
 #include <conio.h>
 #include <stdlib.h>
@@ -5,16 +8,18 @@
 using namespace std;
 
 struct node {
-   int data;
-   struct node *next;
+    int data;
+    struct node *next;
 };
 
 struct node* front = NULL;
 struct node* rear = NULL;
 struct node* temp;
 
+int urut = 1;
+
 void Insert() {
-    int val, urut = 1;
+    int val;
     string menu[6] = {"Ayam geprek", "Kwetiau", "Es teh", "Es jeruk", "Jus melon", "Jus Semangka"};
    
     cout << "==================" << endl;
@@ -31,12 +36,12 @@ void Insert() {
     cin >> val;
 
     if (rear == NULL) {
-        rear = (struct node *)malloc(sizeof(struct node));
+        rear = (struct node *) malloc (sizeof(struct node));
         rear->next = NULL;
         rear->data = val;
         front = rear;
     } else {
-        temp=(struct node *)malloc(sizeof(struct node));
+        temp = (struct node *) malloc (sizeof(struct node));
         rear->next = temp;
         temp->data = val;
         temp->next = NULL;
@@ -58,17 +63,17 @@ void Insert() {
 void Delete() {
    temp = front;
    if (front == NULL) {
-      cout<<"Underflow"<<endl;
+      cout << "Underflow" << endl;
       return;
    }
    else
    if (temp->next != NULL) {
       temp = temp->next;
-      cout<<"Antrian menu yang dihapus adalah : "<<front->data<<endl;
+      cout << "Antrian menu yang dihapus adalah : " << front->data << endl;
       free(front);
       front = temp;
    } else {
-      cout<<"Antrian menu yang dihapus adalah : "<<front->data<<endl;
+      cout << "Antrian menu yang dihapus adalah : " << front->data << endl;
       free(front);
       front = NULL;
       rear = NULL;
@@ -96,7 +101,7 @@ int main() {
         system("CLS");
         cout << "-----------------------------" << endl;
         cout << "|     Selamat Datang di     |" << endl;
-        cout << "|        RM. Bersama        |" << endl;
+        cout << "|          RM. Kita         |" << endl;
         cout << "-----------------------------" << endl;
         cout << "| 1) Ambil Antrian          |" << endl;
         cout << "| 2) Keluarkan Antrian      |" << endl;
@@ -126,6 +131,7 @@ int main() {
                 break;
             default: 
                 cout<<"Invalid choice"<<endl;
+                getche();
         }
     } while(ch!=4);
 
