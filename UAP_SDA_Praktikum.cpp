@@ -83,7 +83,7 @@ void Delete() {
 void Display() {
    temp = front;
    if ((front == NULL) && (rear == NULL)) {
-      cout<<"Antrian kosong"<<endl;
+      cout<<"Antrian kosong "<<endl;
       return;
    }
    cout<<"Antrian menu : ";
